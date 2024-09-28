@@ -8,7 +8,7 @@ const reservationRouter = require('../routes/reservations');
 
 
 
-router.get("/", (req, res) => {
+router.get("/dashboard", (req, res) => {
   res.render("dashboard");
 }); 
 
@@ -29,7 +29,7 @@ router.get("/reservation", (req, res) => {
   res.render("reservation");
 });  
 
-router.get("/connexion", (req, res) => {
+router.get("/", (req, res) => {
   res.render("connexion");
 });
 

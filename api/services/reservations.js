@@ -1,5 +1,4 @@
-const reservationModel = require('../models/reservation');
-
+const reservationModel = require('../models/reservation')
 
 class ReservationService {
 
