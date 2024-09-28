@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des réservations</title>
+</head>
+<body>
+    <div>
+        <h1>Liste des réservations</h1>
+    </div>
+    <div>
+        <table >
+            <thead>
+                <tr>
+                    <th >Numéro de pont</th>
+                    <th >Nom du client</th>
+                    <th >Nom du bateau amarré</th>
+                    <th >Date de début de réservation</th>
+                    <th >Date de fin de réservation</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <% reservations.forEach(element => { %>
+
+                    <tr>
+                        <td><%= element.catwayNumber %></td>
+                        <td><%= element.clientName %></td>
+                        <td><%= element.boatName %></td>
+                        <td><%= element.checkIn %></td>
+                        <td><%= element.checkOut %></td>
+                    </tr>
+                 
+                <% }) %>
+            </tbody>
+
+        </table>
+    </div>
+    
+</body>
+</html>

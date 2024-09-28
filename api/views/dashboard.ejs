@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord</title>
+</head>
+<body>
+    <div>
+        <h1>Tableau de bord</h1>
+    </div>
+    <div>
+        <h2>Formulaire pour créer un utilisateur</h2>
+        <form method="post" action="/users/" >
+            
+            <label for="name">Nom</label>
+            <input type="text" name="name"  value="" >
+
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname"  value="">
+
+            <label for="email">Email</label>
+            <input type="text" name="email"  value="" >
+
+            <label for="password">Mot de passe</label>
+            <input type="text" name="password"  value="">
+
+            <input type="submit" value="submit">
+
+        
+        </form>
+    </div>
+    
+    
+    <div>
+        <h2>Formulaire pour modifier un utilisateur grâce à son id</h2>
+        <form method="put" action="/users/:id">
+            
+            <label >Id</label>
+            <input type="text">
+               
+            <label for="name">Nom</label>
+            <input type="text" name="name"  value="" >
+
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname"  value="">
+
+            <label for="email">Email</label>
+            <input type="text" name="email"  value="" >
+
+            <label for="password">Mot de passe</label>
+            <input type="text" name="password"  value="">
+
+            <input type="submit" value="submit">
+
+        </form>
+
+        
+    </div>
+    <div>
+        <h2>Formulaire pour supprimer un utilisateur grâce à son id</h2>
+        <form method="delete" action="/users/:id">
+            
+            <label >Id</label>
+            <input type="id">
+
+            <input type="submit" value="submit">
+            
+
+        </form>
+
+        
+    </div>
+    <div>
+        <h2>Formulaire pour créer un catway</h2>
+        <form method="post" action="/catways/">
+
+            <label for="catwayNumber">Numéro de pont</label>
+            <input type="number" name="catwayNumber" value="">
+
+            <label for="type">Type</label>
+            <input type="text" name="type" value="">
+            
+            <label for="catwayState">Description de l’état du catway</label>
+            <input type="text" name="catwayState" value="">
+
+            <input type="submit" value="submit">
+            
+            
+        </form>
+
+        
+    </div>
+    <div>
+        <h2>Formulaire pour modifier la description de l’état d’un catway grâce à son id</h2>
+
+        <form method="put" action="/catways/:id">
+            
+            <label >Id</label>
+            <input type="id">
+                
+            
+            <label for="catwayState">Description de l’état du catway</label>
+            <input type="text" name="catwayState" value="">
+
+            <input type="submit" value="submit">
+
+        </form>
+
+        
+    </div>
+    <div>
+        <h2>Formulaire pour supprimer un catway grâce à son id</h2>
+        <form method="delete" action="/catways/:id">
+            
+            <label >Id</label>
+            <input type="id">
+
+            <input type="submit" value="submit">
+
+        </form>
+
+        
+        
+    </div>
+    <div>
+        <h2>Formulaire pour afficher les détails d’un catway</h2>
+
+        <form method="get" action="/catways/:id"></form>
+            
+            <label >Id</label>
+            <input type="id">
+
+            <input type="submit" value="submit">
+
+        </form>
+    </div>
+    <div>
+        <h2>Formulaire pour enregistrer une réservation</h2>
+        <form method="post" action="/reservations/">
+
+            <label for="catwayNumber">Numéro de pont</label>
+            <input type="number" name="catwayNumber" value="">
+
+            <label for="clientName">Nom du client</label>
+            <input type="text" name="clientName" value="">
+
+            <label for="boatName">Nom du bateau amarré</label>
+            <input type="text" name="boatName" value="">
+
+            <label for="checkIn">Date de début de réservation</label>
+            <input type="date" name="checkIn" value="">
+
+            <label for="checkOut">Date de fin de réservation</label>
+            <input type="date" name="checkOut" value="">
+
+            <input type="submit" value="submit">
+
+            
+        </form>
+
+        
+    </div>
+    <div></div>
+        <h2>Formulaire pour supprimer une réservation grâce à son id</h2>
+
+        <form method="delete" action="/reservations/:id">
+            
+            <label >Id</label>
+            <input type="id">
+
+            <input type="submit" value="submit">
+
+        </form>
+
+    </div>
+    <div>
+        <h2>Formulaire pour afficher les détails d’une réservation grâce à son id</h2>
+        <form method="get" action="/reservations">
+            
+            <label >Id</label>
+            <input type="id">
+
+            <input type="submit" value="submit">
+
+        </form>
+
+    </div>
+    <div>
+        <h2>Lien pour accéder à la liste des catways</h2>
+        <div>
+            <p>Lien vers la liste des catways :<a href="/catways">Lien</a></p>
+        </div>
+
+    </div>
+    <div>
+        <h2>Lien pour accéder à la liste des réservations</h2>
+        <div>
+            <p>Lien vers la liste des réservations :<a href="/Reservations">Lien</a></p>
+        </div>
+
+
+    </div>
+</body>
+</html>
+
