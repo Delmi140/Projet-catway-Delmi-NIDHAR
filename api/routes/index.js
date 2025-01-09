@@ -5,6 +5,7 @@ const userRoute = require('../routes/users');
 const catwaysRouter = require('../routes/catways');
 const reservationRouter = require('../routes/reservations');
 const reservationsService = require('../services/reservations');
+const catwaysService = require('../services/catways');
 
 
 
@@ -13,7 +14,7 @@ router.get("/dashboard", (req, res) => {
 }); 
 
 
-router.get("/catways", (req, res) => {
+router.get("/catways",catwaysService.listCatways, (req, res) => {
   res.render("catways");
 });  
 
