@@ -6,10 +6,13 @@ class UsersService {
 	async listUsers(req, res) {
 		try {
 			const users = await userModel.listUsers()
+			console.log("Users récupérés :", users); // Ajoutez ce log
 			return users;
 		}
 		catch (error){
-			res.status(500).send({ message: error.message })
+			console.error("Erreur lors de la récupération des users :", error);
+            throw new Error("Impossible de récupérer les users");
+
 		}
 
 
@@ -30,7 +33,8 @@ class UsersService {
 		try {
 			const newUser = { ...req.body }
 			const userId = await userModel.addUser(newUser)
-			res.render("dashboard", userId)
+			const users = await userModel.listUsers();
+			res.render("dashboard", { users });
 
 		}
 		catch (error) {

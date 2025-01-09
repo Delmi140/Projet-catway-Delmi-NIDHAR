@@ -4,11 +4,13 @@ class CatwaysService {
 
     async listCatways(req, res) {
         try{
-            const catways = await catwaysModel.listCatways()
+            const catways = await catwaysModel.listCatways();
+            console.log("Catways récupérés :", catways); // Ajoutez ce log
             return catways;
         }
         catch(error) {
-            res.status(500).send({ message: error.message })
+            console.error("Erreur lors de la récupération des catways :", error);
+            throw new Error("Impossible de récupérer les catways");
         }
 
     }
@@ -29,7 +31,8 @@ class CatwaysService {
         try{
             const newCatway = { ...req.body }
             const catwayId = await catwaysModel.addCatway(newCatway)
-            res.render("dashboard", catwayId)
+            const catways = await catwaysModel.listCatways();
+            res.render("dashboard", { catways })
         }
         catch(error) {
             res.status(500).send({ message: error.message })

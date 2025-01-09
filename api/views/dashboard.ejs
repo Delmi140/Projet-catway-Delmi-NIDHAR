@@ -89,16 +89,20 @@
                 </thead>
     
                 <tbody>
-                    <% users.forEach(element => { %>
-    
+                    <% if (typeof users !== 'undefined' && users.length > 0) { %>
+                        <% users.forEach(element => { %>
+                            <tr>
+                                <td><%= element.name %></td>
+                                <td><%= element.firstname %></td>
+                                <td><%= element.email %></td>
+
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
                         <tr>
-                            <td><%= element.name %></td>
-                            <td><%= element.firstname %></td>
-                            <td><%= element.email %></td>
-                            
+                            <td colspan="3">Aucun catway disponible</td>
                         </tr>
-                     
-                    <% }) %>
+                    <% } %>
                 </tbody>
                 
     
@@ -202,16 +206,19 @@
                 </thead>
     
                 <tbody>
-                    <% catways.forEach(element => { %>
-    
+                    <% if (typeof catways !== 'undefined' && catways.length > 0) { %>
+                        <% catways.forEach(element => { %>
+                            <tr>
+                                <td><%= element.catwayNumber %></td>
+                                <td><%= element.type %></td>
+                                <td><%= element.catwayState %></td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
                         <tr>
-                            <td><%= element.catwayNumber %></td>
-                            <td><%= element.type %></td>
-                            <td><%= element.catwayState %></td>
-                            
+                            <td colspan="3">Aucun catway disponible</td>
                         </tr>
-                     
-                    <% }) %>
+                    <% } %>
                 </tbody>
                 
     
@@ -296,17 +303,21 @@
                 </thead>
     
                 <tbody>
-                    <% reservations.forEach(element => { %>
-    
+                    <% if (typeof reservations !== 'undefined' && reservations.length > 0) { %>
+                        <% reservations.forEach(element => { %>
+                            <tr>
+                                <td><%= element.catwayNumber %></td>
+                                <td><%= element.clientName %></td>
+                                <td><%= element.boatName %></td>
+                                <td><%= element.checkIn %></td>
+                                <td><%= element.checkOut %></td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
                         <tr>
-                            <td><%= element.catwayNumber %></td>
-                            <td><%= element.clientName %></td>
-                            <td><%= element.boatName %></td>
-                            <td><%= element.checkIn %></td>
-                            <td><%= element.checkOut %></td>
+                            <td colspan="3">Aucun catway disponible</td>
                         </tr>
-                     
-                    <% }) %>
+                    <% } %>
                 </tbody>
                 
     

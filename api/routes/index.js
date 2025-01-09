@@ -14,9 +14,11 @@ router.get("/dashboard", async (req, res) => {
     const users = await usersService.listUsers();
     const reservations = await reservationsService.listReservations();
     const catways = await catwaysService.listCatways();
+    console.log({ users, reservations, catways });
     res.render("dashboard", { users, reservations,catways });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    console.error("Erreur lors de la récupération des données :", error);
+    throw new Error("Impossible de récupérer les catways");
   }
 });
 

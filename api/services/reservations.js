@@ -5,10 +5,13 @@ class ReservationService {
     async listReservations(req, res) {
         try {
             const reservations = await reservationModel.listReservations()
+            console.log("Reservations récupérés :", reservations); // Ajoutez ce log
             return reservations;
         }
         catch (error) {
-            res.status(500).send({ message: error.message })
+            console.error("Erreur lors de la récupération des Reservations :", error);
+            throw new Error("Impossible de récupérer les Reservationss");
+
         }
 
     }
@@ -28,7 +31,8 @@ class ReservationService {
         try {
             const newReservation = { ...req.body }
             const reservationId = await reservationModel.addReservation(newReservation)
-            res.render("dashboard", reservationId)
+            const reservations = await reservationModel.listReservations();
+            res.render("dashboard", { reservations })
         }
         catch (error) {
             res.status(500).send({ message: error.message })
