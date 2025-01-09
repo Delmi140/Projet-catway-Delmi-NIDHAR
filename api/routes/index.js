@@ -4,7 +4,7 @@ var router = express.Router();
 const userRoute = require('../routes/users');
 const catwaysRouter = require('../routes/catways');
 const reservationRouter = require('../routes/reservations');
-
+const reservationsService = require('../services/reservations');
 
 
 
@@ -17,7 +17,7 @@ router.get("/catways", (req, res) => {
   res.render("catways");
 });  
 
-router.get("/reservations", (req, res) => {
+router.get("/reservations",reservationsService.listReservations, (req, res) => {
   res.render("reservations");
 });  
 

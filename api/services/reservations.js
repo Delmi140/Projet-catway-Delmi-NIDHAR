@@ -5,10 +5,10 @@ class ReservationService {
     async listReservations(req, res) {
         try {
             const reservations = await reservationModel.listReservations()
-            res.render("reservations", reservations)
+            res.render("reservations", { reservations });
         }
         catch (error) {
-            res.status(500).send({ message: error.message })
+            res.status(500).send({ message: error.message });
         }
 
     }
