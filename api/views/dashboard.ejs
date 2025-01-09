@@ -71,6 +71,54 @@
 
         
     </div>
+
+    <div>
+        <h2>Formulaire pour modifier et supprimer un utilisateur grâce à son id</h2>
+
+
+        <div>
+            <table >
+                <thead>
+                    <tr>
+                        <th >Nom</th>
+                        <th >Prénom</th>
+                        <th >Email</th>
+                        
+                    </tr>
+    
+                </thead>
+    
+                <tbody>
+                    <% users.forEach(element => { %>
+    
+                        <tr>
+                            <td><%= element.name %></td>
+                            <td><%= element.firstname %></td>
+                            <td><%= element.email %></td>
+                            
+                        </tr>
+                     
+                    <% }) %>
+                </tbody>
+                
+    
+                
+    
+            </table>
+        </div>
+    
+
+
+
+    </div>
+
+
+
+
+
+
+
+
     <div>
         <h2>Formulaire pour créer un catway</h2>
         <form method="post" action="/catways/">
@@ -135,6 +183,49 @@
 
         </form>
     </div>
+
+    <div>
+        <div>
+            <h2>Formulaire pour afficher , supprimer et modifier la description de l’état d’un catwayune  grâce à son id</h2>
+        </div>
+        
+        <div>
+            <table >
+                <thead>
+                    <tr>
+                        <th >Numéro de pont</th>
+                        <th >Type</th>
+                        <th >Description de l’état du catway</th>
+                        
+                    </tr>
+    
+                </thead>
+    
+                <tbody>
+                    <% catways.forEach(element => { %>
+    
+                        <tr>
+                            <td><%= element.catwayNumber %></td>
+                            <td><%= element.type %></td>
+                            <td><%= element.catwayState %></td>
+                            
+                        </tr>
+                     
+                    <% }) %>
+                </tbody>
+                
+    
+                
+    
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+
     <div>
         <h2>Formulaire pour enregistrer une réservation</h2>
         <form method="post" action="/reservations/">
@@ -184,6 +275,50 @@
             <input type="submit" value="submit">
 
         </form>
+
+    </div>
+
+    <div>
+        <h2>Formulaire pour afficher les détails et supprimer une réservation grâce à son id</h2>
+
+
+        <div>
+            <table >
+                <thead>
+                    <tr>
+                        <th >Numéro de pont</th>
+                        <th >Nom du client</th>
+                        <th >Nom du bateau amarré</th>
+                        <th >Date de début de réservation</th>
+                        <th >Date de fin de réservation</th>
+                    </tr>
+    
+                </thead>
+    
+                <tbody>
+                    <% reservations.forEach(element => { %>
+    
+                        <tr>
+                            <td><%= element.catwayNumber %></td>
+                            <td><%= element.clientName %></td>
+                            <td><%= element.boatName %></td>
+                            <td><%= element.checkIn %></td>
+                            <td><%= element.checkOut %></td>
+                        </tr>
+                     
+                    <% }) %>
+                </tbody>
+                
+    
+                
+    
+            </table>
+        </div>
+
+
+
+
+
 
     </div>
     <div>

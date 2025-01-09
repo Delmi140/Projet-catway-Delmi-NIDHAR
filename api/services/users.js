@@ -6,7 +6,7 @@ class UsersService {
 	async listUsers(req, res) {
 		try {
 			const users = await userModel.listUsers()
-			res.status(200).send(users)
+			return users;
 		}
 		catch (error){
 			res.status(500).send({ message: error.message })

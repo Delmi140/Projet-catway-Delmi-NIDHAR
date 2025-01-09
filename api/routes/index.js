@@ -6,21 +6,48 @@ const catwaysRouter = require('../routes/catways');
 const reservationRouter = require('../routes/reservations');
 const reservationsService = require('../services/reservations');
 const catwaysService = require('../services/catways');
+const usersService = require('../services/users')
+
+
+router.get("/dashboard", async (req, res) => {
+  try {
+    const users = await usersService.listUsers();
+    const reservations = await reservationsService.listReservations();
+    const catways = await catwaysService.listCatways();
+    res.render("dashboard", { users, reservations,catways });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
 
 
 
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
-}); 
+
+router.get("/catways", async (req, res) => {
+  try {
+    
+    const catways = await catwaysService.listCatways();
+    res.render("catways", { catways });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
 
 
-router.get("/catways",catwaysService.listCatways, (req, res) => {
-  res.render("catways");
-});  
 
-router.get("/reservations",reservationsService.listReservations, (req, res) => {
-  res.render("reservations");
-});  
+
+
+router.get("/reservations", async (req, res) => {
+  try {
+    
+    const reservations = await reservationsService.listReservations();
+    res.render("reservations", { reservations });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
+
 
 router.get("/catway", (req, res) => {
   res.render("catway");

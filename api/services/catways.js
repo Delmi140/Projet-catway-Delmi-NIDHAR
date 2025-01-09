@@ -5,7 +5,7 @@ class CatwaysService {
     async listCatways(req, res) {
         try{
             const catways = await catwaysModel.listCatways()
-            res.render("catways", { catways });
+            return catways;
         }
         catch(error) {
             res.status(500).send({ message: error.message })
