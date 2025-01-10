@@ -55,13 +55,27 @@ router.get("/catway", (req, res) => {
   res.render("catway");
 });  
 
-router.get("/reservation", (req, res) => {
-  res.render("reservation");
+router.get("/user", (req, res) => {
+  res.render("user");
 });  
 
 router.get("/", (req, res) => {
   res.render("connexion");
 });
+
+
+router.delete('/:id', async (req, res) => {
+  try {
+      await reservationsService.deleteReservation(req.params.id);
+      await catwaysService.deleteCatway(req, res); 
+      await usersService.deleteUser(req.params.id); // Appelle le service pour supprimer l'utilisateur
+      res.redirect('/dashboard'); // Redirige vers le tableau de bord après suppression
+  } catch (error) {
+      res.status(500).send({ message: error.message });
+  }
+});
+
+
 
 
 

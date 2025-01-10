@@ -12,11 +12,14 @@ var catwaysRouter = require('./routes/catways');
 var reservationRouter = require('./routes/reservations');
 
 
+
 const mongodb = require('./db/mongo');
 
 mongodb.initClientDbConnection();
 
 var app = express();
+
+
 
 app.use(cors({
     exposedHeaders: ['Authorization'],
@@ -27,7 +30,8 @@ app.use(cors({
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine','ejs');
 
-
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 
 app.use(logger('dev'));

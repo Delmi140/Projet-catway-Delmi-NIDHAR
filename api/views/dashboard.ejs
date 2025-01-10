@@ -83,6 +83,7 @@
                         <th >Nom</th>
                         <th >Prénom</th>
                         <th >Email</th>
+                        <th class="text-end">Action</th>
                         
                     </tr>
     
@@ -95,6 +96,24 @@
                                 <td><%= element.name %></td>
                                 <td><%= element.firstname %></td>
                                 <td><%= element.email %></td>
+                                
+                                <td>
+                                    <div class="d-flex flex-row justify-content-end">
+                                        
+
+                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                            <button>Modifer</button>
+                                        </a>
+
+
+
+                                        <!-- Formulaire de suppression -->
+                                        <form action="/users/<%= element._id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+
 
                             </tr>
                         <% }) %>
@@ -200,7 +219,7 @@
                         <th >Numéro de pont</th>
                         <th >Type</th>
                         <th >Description de l’état du catway</th>
-                        
+                        <th class="text-end">Action</th>
                     </tr>
     
                 </thead>
@@ -212,6 +231,30 @@
                                 <td><%= element.catwayNumber %></td>
                                 <td><%= element.type %></td>
                                 <td><%= element.catwayState %></td>
+
+                                <td>
+                                    <div class="d-flex flex-row justify-content-end">
+                                        
+
+                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                            <button>Modifer</button>
+                                        </a>
+
+                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                            <button>voir</button>
+                                        </a>
+
+
+                                        <!-- Formulaire de suppression -->
+                                        <form action="/catways/<%= element._id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+
+
+
+
                             </tr>
                         <% }) %>
                     <% } else { %>
@@ -296,8 +339,7 @@
                         <th >Numéro de pont</th>
                         <th >Nom du client</th>
                         <th >Nom du bateau amarré</th>
-                        <th >Date de début de réservation</th>
-                        <th >Date de fin de réservation</th>
+                        <th class="text-end">Action</th>
                     </tr>
     
                 </thead>
@@ -309,8 +351,29 @@
                                 <td><%= element.catwayNumber %></td>
                                 <td><%= element.clientName %></td>
                                 <td><%= element.boatName %></td>
-                                <td><%= element.checkIn %></td>
-                                <td><%= element.checkOut %></td>
+
+                                <td>
+                                    <div class="d-flex flex-row justify-content-end">
+                                        
+
+                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                            <button>Modifer</button>
+                                        </a>
+
+                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                            <button>voir</button>
+                                        </a>
+
+
+                                        <!-- Formulaire de suppression -->
+                                        <form action="/reservations/<%= element._id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                                
+
+
                             </tr>
                         <% }) %>
                     <% } else { %>
