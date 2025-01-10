@@ -89,6 +89,14 @@ router.get('/users/edit/:id', async (req, res) => {
   }
 });
 
+router.get('/catways/edit/:id', async (req, res) => {
+  try {
+    const catway = await catwaysService.getCatwayById(req.params.id);
+    res.render('editCatway', { catway });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
 
 
 

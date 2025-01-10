@@ -15,13 +15,15 @@ class CatwaysService {
 
     }
 
-    async getCatwayById(req, res) {
+    async getCatwayById(id) {
         try {
-            const catway = await catwaysModel.getCatwayById(req.params.id)
-            res.status(200).send(catway)
+            return await catwaysModel.getCatwayById(id)
+            
         }
         catch(error) {
-            res.status(500).send({ message: error.message })
+            console.error("Erreur:", error);
+            throw error;
+
         }
 
 
@@ -44,7 +46,7 @@ class CatwaysService {
         try {
             const newCatway = { ...req.body, _id: req.params.id }
             await catwaysModel.updateCatway(newCatway)
-            res.status(204).send()
+            res.redirect('/dashboard');
         }
         catch (error) {
             res.status(500).send({ message: error.message })
