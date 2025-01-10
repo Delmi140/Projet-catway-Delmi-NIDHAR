@@ -55,9 +55,13 @@ router.get("/catway", (req, res) => {
   res.render("catway");
 });  
 
-router.get("/user", (req, res) => {
-  res.render("user");
-});  
+
+
+
+
+
+
+
 
 router.get("/", (req, res) => {
   res.render("connexion");
@@ -75,6 +79,15 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+
+router.get('/users/edit/:id', async (req, res) => {
+  try {
+    const user = await usersService.getUserById(req.params.id);
+    res.render('editUser', { user });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
 
 
 

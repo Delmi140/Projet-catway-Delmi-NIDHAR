@@ -57,20 +57,7 @@
 
         
     </div>
-    <div>
-        <h2>Formulaire pour supprimer un utilisateur grâce à son id</h2>
-        <form method="delete" action="/users/:id">
-            
-            <label >Id</label>
-            <input type="id">
-
-            <input type="submit" value="submit">
-            
-
-        </form>
-
-        
-    </div>
+    
 
     <div>
         <h2>Formulaire pour modifier et supprimer un utilisateur grâce à son id</h2>
@@ -101,9 +88,12 @@
                                     <div class="d-flex flex-row justify-content-end">
                                         
 
-                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
-                                            <button>Modifer</button>
+                                        <a href="/users/edit/<%= element._id %>">
+                                            <button>Modifier</button>
                                         </a>
+
+
+                                        
 
 
 
@@ -180,20 +170,7 @@
 
         
     </div>
-    <div>
-        <h2>Formulaire pour supprimer un catway grâce à son id</h2>
-        <form method="delete" action="/catways/:id">
-            
-            <label >Id</label>
-            <input type="id">
-
-            <input type="submit" value="submit">
-
-        </form>
-
-        
-        
-    </div>
+    
     <div>
         <h2>Formulaire pour afficher les détails d’un catway</h2>
 
@@ -236,9 +213,7 @@
                                     <div class="d-flex flex-row justify-content-end">
                                         
 
-                                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
-                                            <button>Modifer</button>
-                                        </a>
+                                        
 
                                         <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
                                             <button>voir</button>
@@ -302,19 +277,7 @@
 
         
     </div>
-    <div></div>
-        <h2>Formulaire pour supprimer une réservation grâce à son id</h2>
-
-        <form method="delete" action="/reservations/:id">
-            
-            <label >Id</label>
-            <input type="id">
-
-            <input type="submit" value="submit">
-
-        </form>
-
-    </div>
+    
     <div>
         <h2>Formulaire pour afficher les détails d’une réservation grâce à son id</h2>
         <form method="get" action="/reservations">

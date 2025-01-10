@@ -18,13 +18,13 @@ class UsersService {
 
 	}
 
-	async getUserById (req, res) {
+	async getUserById (id) {
 		try {
-			const user = await userModel.getUserById(req.params.id)
-			res.status(200).send(user)
+			return await userModel.getUserById(id)
 		}
 		catch (error) {
-			res.status(500).send({ message: error.message })
+			console.error("Erreur:", error);
+        	throw error;
 		}
 
 	}
@@ -49,7 +49,7 @@ class UsersService {
 		try {
 			const newUser = { ...req.body, _id: req.params.id }
 			await userModel.updateUser(newUser)
-			res.status(204).send()
+			res.redirect('/dashboard');
 		}
 		catch (error) {
 			res.status(500).send({ message: error.message })
