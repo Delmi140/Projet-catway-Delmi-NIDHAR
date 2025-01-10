@@ -51,11 +51,6 @@ router.get("/reservations", async (req, res) => {
 
 
 
-router.get("/catway", (req, res) => {
-  res.render("catway");
-});  
-
-
 
 
 
@@ -98,7 +93,23 @@ router.get('/catways/edit/:id', async (req, res) => {
   }
 });
 
+router.get('/catways/look/:id', async (req, res) => {
+  try {
+      const catway = await catwaysService.getCatwayById(req.params.id);
+      res.render('catwayDetails', { catway });
+  } catch (error) {
+      res.status(500).send({ message: error.message });
+  }
+});
 
+router.get('/reservations/look/:id', async (req, res) => {
+  try {
+      const reservation = await reservationsService.getReservationById(req.params.id);
+      res.render('reservationsDetails', { reservation });
+  } catch (error) {
+      res.status(500).send({ message: error.message });
+  }
+});
 
 router.use('/users', userRoute);
 router.use('/catways', catwaysRouter);

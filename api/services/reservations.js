@@ -16,13 +16,15 @@ class ReservationService {
 
     }
 
-    async getReservationById(req, res) {
+    async getReservationById(id) {
         try {
-            const reservation = await reservationModel.getReservationById(req.params.id)
-            res.status(200).send(reservation)
+            return await reservationModel.getReservationById(id)
+          
         }
         catch (error) {
-            res.status(500).send({ message: error.message })
+            console.error("Erreur:", error);
+            throw error;
+
         }
 
     }
