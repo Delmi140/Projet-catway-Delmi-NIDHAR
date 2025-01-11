@@ -6,10 +6,11 @@ const catwaysRouter = require('../routes/catways');
 const reservationRouter = require('../routes/reservations');
 const reservationsService = require('../services/reservations');
 const catwaysService = require('../services/catways');
-const usersService = require('../services/users')
+const usersService = require('../services/users');
+const authMiddleware =require('../middlewares/authMiddleware')
 
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard" ,authMiddleware,async (req, res) => {
   try {
     const users = await usersService.listUsers();
     const reservations = await reservationsService.listReservations();
@@ -25,7 +26,7 @@ router.get("/dashboard", async (req, res) => {
 
 
 
-router.get("/catways", async (req, res) => {
+router.get("/catways",authMiddleware, async (req, res) => {
   try {
     
     const catways = await catwaysService.listCatways();
@@ -39,7 +40,7 @@ router.get("/catways", async (req, res) => {
 
 
 
-router.get("/reservations", async (req, res) => {
+router.get("/reservations",authMiddleware, async (req, res) => {
   try {
     
     const reservations = await reservationsService.listReservations();
@@ -63,7 +64,7 @@ router.get("/", (req, res) => {
 });
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',authMiddleware, async (req, res) => {
   try {
       await reservationsService.deleteReservation(req.params.id);
       await catwaysService.deleteCatway(req, res); 
@@ -75,7 +76,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-router.get('/users/edit/:id', async (req, res) => {
+router.get('/users/edit/:id',authMiddleware, async (req, res) => {
   try {
     const user = await usersService.getUserById(req.params.id);
     res.render('editUser', { user });
@@ -84,7 +85,7 @@ router.get('/users/edit/:id', async (req, res) => {
   }
 });
 
-router.get('/catways/edit/:id', async (req, res) => {
+router.get('/catways/edit/:id',authMiddleware, async (req, res) => {
   try {
     const catway = await catwaysService.getCatwayById(req.params.id);
     res.render('editCatway', { catway });
@@ -93,7 +94,7 @@ router.get('/catways/edit/:id', async (req, res) => {
   }
 });
 
-router.get('/catways/look/:id', async (req, res) => {
+router.get('/catways/look/:id',authMiddleware, async (req, res) => {
   try {
       const catway = await catwaysService.getCatwayById(req.params.id);
       res.render('catwayDetails', { catway });
@@ -102,7 +103,7 @@ router.get('/catways/look/:id', async (req, res) => {
   }
 });
 
-router.get('/reservations/look/:id', async (req, res) => {
+router.get('/reservations/look/:id',authMiddleware, async (req, res) => {
   try {
       const reservation = await reservationsService.getReservationById(req.params.id);
       res.render('reservationsDetails', { reservation });

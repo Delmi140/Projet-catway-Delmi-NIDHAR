@@ -1,5 +1,8 @@
 
 const userModel = require('../models/user');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 
 class UsersService {
 
@@ -67,6 +70,28 @@ class UsersService {
 		}
 
 	}
+
+	
+	async authenticate(email, password) {
+		try {
+		  const user = await userModel.findOne({ email: email });
+		  if (!user) throw new Error('Utilisateur non trouvé');
+	  
+		  const isMatch = await bcrypt.compare(password, user.password);
+		  if (!isMatch) throw new Error('Mot de passe incorrect');
+	  
+		  return user;
+		} catch (error) {
+		  console.error('Erreur d\'authentification :', error);
+		  throw error;
+		}
+	  }
+	  
+	
+	
+
+
+
 }
 
 module.exports = new UsersService()

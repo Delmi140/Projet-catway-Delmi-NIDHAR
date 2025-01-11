@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'); 
 const Schema = mongoose. Schema;
+const bcrypt = require('bcrypt');
 
 
 
@@ -18,7 +19,9 @@ class UsersModel {
         email: {
             type : String,
            
-            required:true 
+            required:true,
+
+            unique: true 
             
         },
         password:{
@@ -59,6 +62,11 @@ class UsersModel {
 
     async addUser(newUser) {
         try {
+
+            const salt = await bcrypt.genSalt(10); // Le "10" est le facteur de coût
+            newUser.password = await bcrypt.hash(newUser.password, salt);
+
+
             const newUserMongoose = new this.User(newUser)
             const userRegistered = await newUserMongoose.save()
             return userRegistered._id
@@ -89,7 +97,13 @@ class UsersModel {
 
     }
 
-
+    async findOne(query) {
+        try {
+            return await this.User.findOne(query).exec();
+        } catch (error) {
+            throw error;
+        }
+    }
 
 }
 
