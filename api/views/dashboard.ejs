@@ -75,7 +75,7 @@
 
                                         <!-- Formulaire de suppression -->
                                         <form action="/users/<%= element._id %>?_method=DELETE" method="POST">
-                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-small">Supprimer</button>
                                         </form>
                                     </div>
                                 </td>
@@ -101,7 +101,9 @@
 
     </div>
 
+    
 
+    
 
 
 
@@ -116,7 +118,11 @@
             <input type="number" name="catwayNumber" value="">
 
             <label for="type">Type</label>
-            <input type="text" name="type" value="">
+            <select name="type" required>
+                <option value="" disabled selected>Choisir un type</option>
+                <option value="long">Long</option>
+                <option value="short">Short</option>
+            </select>
             
             <label for="catwayState">Description de l’état du catway</label>
             <input type="text" name="catwayState" value="">
@@ -171,7 +177,7 @@
 
                                         <!-- Formulaire de suppression -->
                                         <form action="/catways/<%= element._id %>?_method=DELETE" method="POST">
-                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-small">Supprimer</button>
                                         </form>
                                     </div>
                                 </td>
@@ -266,7 +272,7 @@
 
                                         <!-- Formulaire de suppression -->
                                         <form action="/reservations/<%= element._id %>?_method=DELETE" method="POST">
-                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-small">Supprimer</button>
                                         </form>
                                     </div>
                                 </td>
@@ -307,6 +313,14 @@
             <p>Lien vers la liste des réservations :<a href="/reservations">Lien</a></p>
         </div>
 
+
+    </div>
+
+    <div>
+        <h2>Lien pour retourner sur le tableau de bord</h2>
+        <div>
+            <p>Lien vers le tableau de bord :<a href="/dashboard">Lien</a></p>
+        </div>
 
     </div>
 </body>

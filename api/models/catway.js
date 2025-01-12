@@ -12,7 +12,11 @@ class CatwaysModel {
         },
         type: {
             type: String,
-            trim : true 
+            trim : true ,
+
+            enum: ['long', 'short'], // Les seules valeurs autorisées
+            required: true // Si ce champ est obligatoire
+            
             
          },
         catwayState:{

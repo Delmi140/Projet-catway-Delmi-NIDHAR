@@ -12,7 +12,12 @@
         <input type="text" name="catwayNumber" value="<%= catway.catwayNumber %>" required>
 
         <label for="Type">Type:</label>
-        <input type="text" name="type" value="<%= catway.type %>" required>
+        
+        <select name="type" value="<%= catway.type %>" required>
+            <option value="" disabled selected>Choisir un type</option>
+            <option value="long">Long</option>
+            <option value="short">Short</option>
+        </select>
 
         <label for="Description de l’état du catway">Description de l’état du catway:</label>
         <input type="text" name="catwayState" value="<%= catway.catwayState %>" required>
