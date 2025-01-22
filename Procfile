@@ -1,1 +1,1 @@
-web: gunicorn app:app.js
+web: node app.js
