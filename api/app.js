@@ -46,7 +46,7 @@ app.use('/catways', catwaysRouter);
 app.use('/reservations', reservationRouter)
 
 app.use(function(err, req, res,next) {
-    console.error(err.stack);
+    console.error("Error occurred:", err.message);
     res.status(500).json({name: 'API', version: '1.0', status: 500, message: 'internal_server_error'});
 });
 
