@@ -29,6 +29,6 @@
     "sinon-mongoose": "^2.3.0"
   },
   "engines": {
-    "node": "20.x"
+    "node": "20.17.0"
   }
 }
