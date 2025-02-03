@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const clientOptions = {
     useNewUrlParser : true,
-    useUnifiedTopology: true,
     dbName : 'apinode'
 };
 
