@@ -19,7 +19,8 @@ mongodb.initClientDbConnection();
 
 var app = express();
 
-
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 app.use(cors({
     exposedHeaders: ['Authorization'],
